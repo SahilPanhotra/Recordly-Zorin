@@ -133,19 +133,21 @@ export function registerSourceHandlers({
 		if (process.platform !== "darwin" || !includeWindows) {
 			const windowSources = electronSources
 				.filter((source) => source.id.startsWith("window:"))
-				.filter((source) => hasUsableSourceThumbnail(source.thumbnail))
 				.filter((source) => {
 					const normalizedName = normalizeDesktopSourceName(source.name);
 					if (!normalizedName) {
 						return true;
 					}
 
+					// Only filter out Recordly's own windows, but be more precise
 					if (ALLOW_RECORDLY_WINDOW_CAPTURE && normalizedName.includes("recordly")) {
 						return true;
 					}
 
 					for (const ownName of ownWindowNames) {
 						if (!ownName) continue;
+						// Only hide if it's an exact match for one of our own windows
+						// (to avoid hiding apps that just happen to have a similar name)
 						if (normalizedName === ownName) {
 							return false;
 						}
