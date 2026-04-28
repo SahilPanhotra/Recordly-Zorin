@@ -25,7 +25,7 @@ import { formatBinding, SHORTCUT_ACTIONS, SHORTCUT_LABELS } from "@/lib/shortcut
 import { formatShortcut } from "@/utils/platformUtils";
 
 export const RECORDLY_ISSUES_URL = "https://github.com/webadderall/Recordly/issues";
-const RECORDLY_DISCORD_URL = "https://discord.gg/FcfNN4S9m";
+const RECORDLY_DISCORD_URL = "https://discord.gg/sdv2FBVNgE";
 const RECORDLY_X_URL = "https://x.com/webadderall";
 const CONTACT_EMAIL = "youngchen3442@gmail.com";
 export const APP_HEADER_ACTION_BUTTON_CLASS =
