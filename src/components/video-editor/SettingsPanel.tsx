@@ -1902,8 +1902,14 @@ export function SettingsPanel({
 							className="text-[10px] text-[#2563EB] transition-opacity hover:opacity-80"
 							title={
 								padding.linked === false
-									? tSettings("effects.paddingAdvancedHide", "Hide advanced padding controls")
-									: tSettings("effects.paddingAdvancedShow", "Show advanced padding controls")
+									? tSettings(
+											"effects.paddingAdvancedHide",
+											"Hide advanced padding controls",
+										)
+									: tSettings(
+											"effects.paddingAdvancedShow",
+											"Show advanced padding controls",
+										)
 							}
 						>
 							{tSettings("effects.paddingAdvanced", "Advanced")}

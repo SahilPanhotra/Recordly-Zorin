@@ -14,6 +14,7 @@ import {
 	systemPreferences,
 	Tray,
 } from "electron";
+import { LINUX_PORTAL_SOURCE_ID } from "../src/lib/constants";
 import { RECORDINGS_DIR } from "./appPaths";
 import { showCursor } from "./cursorHider";
 import { registerExtensionIpcHandlers } from "./extensions/extensionIpc";
@@ -930,7 +931,7 @@ app.whenReady().then(async () => {
 			// source picker entirely). This avoids calling getSources() which
 			// would itself trigger an extra portal dialog.
 			const isLinuxPortalSentinel =
-				process.platform === "linux" && (sourceId === "screen:linux-portal" || !sourceId);
+				process.platform === "linux" && (sourceId === LINUX_PORTAL_SOURCE_ID || !sourceId);
 			if (isLinuxPortalSentinel) {
 				callback({ video: { id: "screen:0:0", name: "Entire screen" } });
 				return;
