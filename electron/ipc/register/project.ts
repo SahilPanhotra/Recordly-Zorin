@@ -621,16 +621,16 @@ export function registerProjectHandlers() {
 		"set-current-recording-session",
 		async (
 			_,
-			session: { videoPath: string; webcamPath?: string | null; timeOffsetMs?: number },
+			sessionData: { videoPath: string; webcamPath?: string | null; timeOffsetMs?: number },
 			options?: { preserveProjectPath?: boolean },
 		) => {
 			const normalizedVideoPath =
-				normalizeVideoSourcePath(session.videoPath) ?? session.videoPath;
+				normalizeVideoSourcePath(sessionData.videoPath) ?? sessionData.videoPath;
 			setCurrentVideoPath(normalizedVideoPath);
 			setCurrentRecordingSession({
 				videoPath: normalizedVideoPath,
-				webcamPath: normalizeVideoSourcePath(session.webcamPath ?? null),
-				timeOffsetMs: normalizeRecordingTimeOffsetMs(session.timeOffsetMs),
+				webcamPath: normalizeVideoSourcePath(sessionData.webcamPath ?? null),
+				timeOffsetMs: normalizeRecordingTimeOffsetMs(sessionData.timeOffsetMs),
 			});
 			const session = currentRecordingSession;
 			await replaceApprovedSessionLocalReadPaths([
